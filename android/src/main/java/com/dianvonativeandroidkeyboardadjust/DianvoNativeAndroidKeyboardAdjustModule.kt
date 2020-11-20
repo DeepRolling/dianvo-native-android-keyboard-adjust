@@ -1,24 +1,96 @@
 package com.dianvonativeandroidkeyboardadjust
 
-import com.facebook.react.bridge.ReactApplicationContext
-import com.facebook.react.bridge.ReactContextBaseJavaModule
-import com.facebook.react.bridge.ReactMethod
-import com.facebook.react.bridge.Promise
+import android.app.Activity
+import android.view.WindowManager
+import com.facebook.react.bridge.*
 
 class DianvoNativeAndroidKeyboardAdjustModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaModule(reactContext) {
 
-    override fun getName(): String {
-        return "DianvoNativeAndroidKeyboardAdjust"
-    }
+  override fun getName(): String {
+    return "DianvoNativeAndroidKeyboardAdjust"
+  }
 
-    // Example method
-    // See https://facebook.github.io/react-native/docs/native-modules-android
-    @ReactMethod
-    fun multiply(a: Int, b: Int, promise: Promise) {
-    
-      promise.resolve(a * b)
-    
-    }
 
-    
+
+  @ReactMethod
+  fun setStateUnspecified() {
+    val activity: Activity = currentActivity ?: return
+    activity.runOnUiThread {
+      activity.window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_UNSPECIFIED)
+    }
+  }
+
+  @ReactMethod
+  fun setAdjustNothing() {
+    val activity: Activity = currentActivity ?: return
+    activity.runOnUiThread {
+      activity.window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING)
+    }
+  }
+
+  @ReactMethod
+  fun setAdjustPan() {
+    val activity: Activity = currentActivity ?: return
+    activity.runOnUiThread {
+      activity.window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
+    }
+  }
+
+  @ReactMethod
+  fun setAdjustResize() {
+    val activity: Activity = currentActivity ?: return
+    activity.runOnUiThread {
+      activity.window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
+    }
+  }
+
+  @ReactMethod
+  fun setAdjustUnspecified() {
+    val activity: Activity = currentActivity ?: return
+    activity.runOnUiThread {
+      activity.window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_UNSPECIFIED)
+    }
+  }
+
+  @ReactMethod
+  fun setAlwaysHidden() {
+    val activity: Activity = currentActivity ?: return
+    activity.runOnUiThread {
+      activity.window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
+    }
+  }
+
+  @ReactMethod
+  fun setAlwaysVisible() {
+    val activity: Activity = currentActivity ?: return
+    activity.runOnUiThread {
+      activity.window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE)
+    }
+  }
+
+  @ReactMethod
+  fun setVisible() {
+    val activity: Activity = currentActivity ?: return
+    activity.runOnUiThread {
+      activity.window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
+    }
+  }
+
+  @ReactMethod
+  fun setHidden() {
+    val activity: Activity = currentActivity ?: return
+    activity.runOnUiThread {
+      activity.window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN)
+    }
+  }
+
+  @ReactMethod
+  fun setUnchanged() {
+    val activity: Activity = currentActivity ?: return
+    activity.runOnUiThread {
+      activity.window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_UNCHANGED)
+    }
+  }
+
+
 }

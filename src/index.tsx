@@ -1,7 +1,16 @@
 import { NativeModules } from 'react-native';
 
 type DianvoNativeAndroidKeyboardAdjustType = {
-  multiply(a: number, b: number): Promise<number>;
+  setStateUnspecified(): void;
+  setAdjustNothing(): void;
+  setAdjustPan(): void;
+  setAdjustResize(): void;
+  setAdjustUnspecified(): void;
+  setAlwaysHidden(): void;
+  setAlwaysVisible(): void;
+  setVisible(): void;
+  setHidden(): void;
+  setUnchanged(): void;
 };
 
 const { DianvoNativeAndroidKeyboardAdjust } = NativeModules;
